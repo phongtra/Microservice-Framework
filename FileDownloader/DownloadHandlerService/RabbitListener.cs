@@ -33,7 +33,11 @@ namespace DownloadHandlerService
         {
             var body = ea.Body;
             var message = Encoding.UTF8.GetString(body);
-            Console.WriteLine(" [x] Received {0}", message);
+            var result = Downloader.Download(message, @"C:\Users\phongth\Desktop\DownloadedFile", 4);
+            Console.WriteLine($"Location: {result.FilePath}");
+            Console.WriteLine($"Size: {result.Size}bytes");
+            Console.WriteLine($"Time taken: {result.TimeTaken.Milliseconds}ms");
+            Console.WriteLine($"Parallel: {result.ParallelDownloads}");
         }
         public void Deregister()
         {

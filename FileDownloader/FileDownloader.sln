@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileDownloader", "FileDownloader\FileDownloader.csproj", "{4FF99A20-CFCB-4EF2-B33F-61D07DC43114}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DownloaderGateway", "DownloaderGateway\DownloaderGateway.csproj", "{5AB69DD7-7E22-49FA-B350-E7A367646074}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FrontendRequestService", "FrontendRequestService\FrontendRequestService.csproj", "{8960B2BE-FB32-4773-8E7A-09CE60553BA7}"
@@ -17,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4FF99A20-CFCB-4EF2-B33F-61D07DC43114}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4FF99A20-CFCB-4EF2-B33F-61D07DC43114}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4FF99A20-CFCB-4EF2-B33F-61D07DC43114}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4FF99A20-CFCB-4EF2-B33F-61D07DC43114}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5AB69DD7-7E22-49FA-B350-E7A367646074}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5AB69DD7-7E22-49FA-B350-E7A367646074}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AB69DD7-7E22-49FA-B350-E7A367646074}.Release|Any CPU.ActiveCfg = Release|Any CPU

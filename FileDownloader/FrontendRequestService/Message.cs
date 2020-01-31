@@ -17,11 +17,10 @@ namespace FrontendRequestService
             {
                 var number = GeneratedNumber();
                 body = Encoding.UTF8.GetBytes(number.ToString());
+                return;
             }
-            else
-            {
-                body = Encoding.UTF8.GetBytes(link.Value);
-            }
+
+            body = Encoding.UTF8.GetBytes(link.Value);
             var properties = channel.CreateBasicProperties();
             properties.Persistent = true;
 

@@ -5,8 +5,7 @@ const App = () => {
   const [button, setButton] = useState(false);
   const onButtonClick = async () => {
     await axios.post("http://localhost:1200/values", {
-      value:
-        "https://drive.google.com/uc?export=download&id=1AKZTeum65Fqwal95lCGf3TirjNMyJz5q"
+      value: "http://releases.ubuntu.com/18.04/ubuntu-18.04.3-desktop-amd64.iso"
     });
     setButton(!button);
   };
