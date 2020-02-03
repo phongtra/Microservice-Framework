@@ -1,26 +1,25 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Apache.Ignite" Version="2.7.5" />
     <PackageReference Include="Apache.Ignite.Linq" Version="2.7.5" />
     <PackageReference Include="Apache.Ignite.Log4Net" Version="2.7.5" />
     <PackageReference Include="log4net" Version="2.0.8" />
-    <PackageReference Include="rabbitmq.client" Version="5.1.2" />
-    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />
-    <ProjectReference Include="..\IgniteDownloader\IgniteDownloader.csproj" />
-    <ProjectReference Include="..\RabbitMQ.MessagePublishCommon\RabbitMQ.MessagePublishCommon.csproj" />
   </ItemGroup>
+
   <ItemGroup>
     <Reference Include="Apache.Ignite.NLog">
       <HintPath>C:\Users\Admin\.nuget\packages\apache.ignite.nlog\2.7.5\lib\net40\Apache.Ignite.NLog.dll</HintPath>
     </Reference>
   </ItemGroup>
+
 </Project>

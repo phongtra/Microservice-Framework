@@ -1,8 +1,12 @@
+
+using FrontendRequestService.Socket;
+ using   Microsoft.AspNetCore.SignalR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+
 
 namespace FrontendRequestService
 {
@@ -14,11 +18,24 @@ namespace FrontendRequestService
         }
 
         public IConfiguration Configuration { get; }
-
+        readonly string Gateway = "_Gateway";
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(setup =>
+            {
+                setup.AddPolicy(Gateway, policy =>
+                {
+                    policy.AllowAnyHeader();
+                    policy.AllowAnyMethod();
+                    policy.WithOrigins("http://localhost:1200");
+                    policy.AllowCredentials();
+                });
+            });
+            services.AddSingleton<RabbitListener>();
+            services.AddSingleton<NotifyService>();
             services.AddControllers();
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -30,12 +47,14 @@ namespace FrontendRequestService
             }
 
             app.UseRouting();
-
+            app.UseCors(Gateway);
             app.UseAuthorization();
+            app.UseRabbitListener();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<DownloadSocket>("/chatHub");
             });
         }
     }

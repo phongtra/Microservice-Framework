@@ -1,46 +1,52 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
-using IgniteDownloader;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
+using System.Threading.Tasks;
+using Microsoft.AspNet.SignalR;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
-using RabbitMQ.MessagePublishCommon;
+using IConnection = RabbitMQ.Client.IConnection;
 
-namespace DownloadHandlerService
+namespace FrontendRequestService
 {
     public class RabbitListener
     {
         private readonly IServiceProvider _serviceProvider;
+        private readonly NotifyService _service;
         private ConnectionFactory Factory { get; set; }
         private IConnection Connection { get; set; }
         IModel Channel { get; set; }
 
-        public RabbitListener(IServiceProvider serviceProvider)
+        public RabbitListener(IServiceProvider serviceProvider, NotifyService service)
         {
             _serviceProvider = serviceProvider;
-            this.Factory = new ConnectionFactory() {HostName = "localhost"};
+            this.Factory = new ConnectionFactory() { HostName = "localhost" };
             this.Connection = Factory.CreateConnection();
             this.Channel = Connection.CreateModel();
+            _service = service;
         }
 
         public void Register()
         {
             var consumer = new EventingBasicConsumer(Channel);
             consumer.Received += ReceivedMessage;
-            Channel.BasicConsume(queue: "Fuckyou", autoAck: true, consumer: consumer);
+            Channel.BasicConsume(queue: "ScrewYou", autoAck: true, consumer: consumer);
         }
 
         public void ReceivedMessage(object model, BasicDeliverEventArgs ea)
         {
             var body = ea.Body;
             var message = Encoding.UTF8.GetString(body);
-            Download.Initiate(message);
-            Message.PublishMessage("done", "ScrewYou");
+            Console.WriteLine(message);
+            _service.SendNotificationAsync(message);
+
+
         }
         public void Deregister()
         {
             this.Connection.Close();
         }
     }
+
 }
