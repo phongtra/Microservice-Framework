@@ -13,7 +13,7 @@ namespace IgniteServer
             QuickFixForParallelDownload();
 
             IgniteConfiguration cfg = new IgniteConfiguration(); //.FromXml();
-            cfg.SpringConfigUrl = "D:\\repos\\Ignite\\configs\\customConfig.Default.xml";
+            cfg.SpringConfigUrl = "C:\\Users\\phongth\\Desktop\\IgniteSparkDownloader\\customConfig.Default.xml";
             cfg.ClientMode      = false;
             //cfg.PeerAssemblyLoadingMode = PeerAssemblyLoadingMode.CurrentAppDomain;
             cfg.Assemblies = new List<string> {"Core"};

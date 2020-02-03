@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using Apache.Ignite.Core;
-using Apache.Ignite.Core.Deployment;
 using Apache.Ignite.Log4Net;
-using Apache.Ignite.NLog;
 using Core.Downloader;
+using Range = Core.Downloader.Range;
 
 namespace IgniteDownloader
 {
@@ -18,7 +17,7 @@ namespace IgniteDownloader
 
             IgniteConfiguration cfg = new IgniteConfiguration(); //.FromXml();
 //            cfg.SpringConfigUrl = "D:\\repos\\apache-ignite-2.7.5-bin\\config\\customConfig.client.xml";
-            cfg.SpringConfigUrl = "D:\\repos\\Ignite\\configs\\customConfig.Default.xml";
+            cfg.SpringConfigUrl = "C:\\Users\\phongth\\Desktop\\IgniteSparkDownloader\\customConfig.Default.xml";
             cfg.ClientMode              = true;
             //cfg.PeerAssemblyLoadingMode = PeerAssemblyLoadingMode.CurrentAppDomain;
             cfg.JvmOptions              = new List<string> {"-XX:+UseG1GC", "-XX:+DisableExplicitGC"};

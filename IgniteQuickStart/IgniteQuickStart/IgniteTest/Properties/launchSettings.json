@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "IgniteTest": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "Key": "Value",
+        "IGNITE_HOME": "C:\\Users\\phongth\\Desktop\\apache-ignite-2.7.6-bin"
+      }
+    }
+  }
+}

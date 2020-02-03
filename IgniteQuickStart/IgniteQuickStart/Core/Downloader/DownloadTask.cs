@@ -49,7 +49,7 @@ namespace Core.Downloader
         public override string Reduce(IList<IComputeJobResult<List<Tuple<long, string>>>> results)
         {
             var uri = new Uri(url);
-            var destinationFolderPath = @"D:\temp\";
+            var destinationFolderPath = @"C:\Users\phongth\Desktop\DownloadedFile";
             
             var destinationFilePath = Path.Combine(destinationFolderPath, uri.Segments.Last());
 
