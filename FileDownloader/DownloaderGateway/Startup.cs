@@ -25,9 +25,9 @@ namespace DownloaderGateway
             {
                 options.AddPolicy("CorsPolicy",
                     corsPolicyBuilder => corsPolicyBuilder
-                        .AllowAnyOrigin()
+                        .WithOrigins("http://localhost:3000", "http://localhost:2000")
                         .AllowAnyMethod()
-                        .AllowAnyHeader());
+                        .AllowAnyHeader().AllowCredentials());
             });
             services.AddOcelot(Configuration);
         }

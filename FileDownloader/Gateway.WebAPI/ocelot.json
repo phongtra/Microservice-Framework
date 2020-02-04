@@ -1,0 +1,162 @@
+{
+  "ReRoutes": [
+    {
+      "DownstreamPathTemplate": "/api/questions",
+      "DownstreamScheme": "http",
+      "ServiceName": "Database",
+      "UpstreamPathTemplate": "/questions-route",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "ApiSecurity",
+        "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "userType": "ADMIN"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/questions/titles",
+      "DownstreamScheme": "http",
+      "ServiceName": "Database",
+      "UpstreamPathTemplate": "/questions-route/titles"
+    },
+    {
+      "DownstreamPathTemplate": "/api/questions/author/titles/{authorId}",
+      "DownstreamScheme": "http",
+      "ServiceName": "Database",
+      //"DownstreamHostAndPorts": [
+      //  {
+      //    "Host": "localhost",
+      //    "Port": 5000
+      //  }
+      //],
+      "UpstreamPathTemplate": "/questions-route/author/titles/{authorId}"
+    },
+    {
+      "DownstreamPathTemplate": "/api/questions/{questionId}",
+      "DownstreamScheme": "http",
+      "ServiceName": "Database",
+      "UpstreamPathTemplate": "/questions-route/{questionId}",
+      "UpstreamHttpMethod": [ "Get", "Put", "Delete" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "ApiSecurity",
+        "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "userType": "ADMIN"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/questions/author/{authorId}",
+      "DownstreamScheme": "http",
+      "ServiceName": "Database",
+      "UpstreamPathTemplate": "/questions-route/author/{authorId}",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "ApiSecurity",
+        "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "userType": "ADMIN"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/authors/{authorId}",
+      "DownstreamScheme": "http",
+      "ServiceName": "Database",
+      "UpstreamPathTemplate": "/authors-route/{authorId}",
+      "UpstreamHttpMethod": [ "Get", "Put", "Delete" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/authors",
+      "DownstreamScheme": "http",
+      "ServiceName": "Database",
+      "UpstreamPathTemplate": "/authors-route",
+      "UpstreamHttpMethod": [ "Get", "Post" ]
+    },
+    {
+      //To indentity server
+      "UpstreamPathTemplate": "/auth_root/{url}",
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "ServiceName": "Identity"
+      //"UpstreamHttpMethod": [ "POST", "PUT", "GET" ]
+    },
+    /*    {
+      //To indentity server
+      "UpstreamPathTemplate": "/authentication/Identity/{url}",
+      "DownstreamPathTemplate": "/Identity/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 2100
+        }
+      ]
+      //"UpstreamHttpMethod": [ "POST", "PUT", "GET" ]
+    },*/
+    {
+      //To indentity server
+      "UpstreamPathTemplate": "/Identity/{url}",
+      "DownstreamPathTemplate": "/Identity/{url}",
+      "DownstreamScheme": "http",
+      "ServiceName": "Identity"
+      //"UpstreamHttpMethod": [ "POST", "PUT", "GET" ]
+    },
+    {
+      //To indentity server
+      "UpstreamPathTemplate": "/config/{url}",
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "ServiceName": "Identity"
+      //"UpstreamHttpMethod": [ "POST", "PUT", "GET" ]
+    },
+    {
+      //To indentity server
+      "UpstreamPathTemplate": "/.well-known/openid-configuration/{everything}",
+      "DownstreamPathTemplate": "/.well-known/openid-configuration/{everything}",
+      "DownstreamScheme": "http",
+      "ServiceName": "Identity"
+      //"UpstreamHttpMethod": [ "POST", "PUT", "GET" ]
+    },
+    {
+      //To indentity server
+      "UpstreamPathTemplate": "/connect/{url}",
+      "DownstreamPathTemplate": "/connect/{url}",
+      "DownstreamScheme": "http",
+      "ServiceName": "Identity"
+      //"UpstreamHttpMethod": [ "POST", "PUT", "GET" ]
+    },
+    {
+      //To indentity server
+      "UpstreamPathTemplate": "/weatherforecast",
+      "DownstreamPathTemplate": "/weatherforecast",
+      "DownstreamScheme": "http",
+      "ServiceName": "Identity"
+      //"UpstreamHttpMethod": [ "POST", "PUT", "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 3000
+        }
+      ],
+      /*"AuthenticationOptions": {
+        "AuthenticationProviderKey": "ApiSecurity",
+        "AllowedScopes": []
+      },*/
+      "UpstreamPathTemplate": "/{url}"
+      //"UpstreamHttpMethod": [ "Get", "Post", "Put" ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "ServiceDiscoveryProvider": {
+      "Host": "localhost",
+      "Port": 8500,
+      "Type": "PollConsul",
+      "PollingInterval": 100
+    }
+  }
+}

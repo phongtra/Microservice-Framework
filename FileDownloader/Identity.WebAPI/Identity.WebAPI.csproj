@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="5.6.0" />
+    <PackageReference Include="Serilog" Version="2.9.0" />
+    <PackageReference Include="serilog.sinks.graylog" Version="2.1.2" />
+    <PackageReference Include="Syncfusion.EJ2.AspNet.Core" Version="17.4.0.39" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GenericWebServerInitializer\Helper.GenericWebServerInitializer.csproj" />
+    <ProjectReference Include="..\Identity.SharedModels\Identity.SharedModels.csproj" />
+  </ItemGroup>
+
+
+</Project>

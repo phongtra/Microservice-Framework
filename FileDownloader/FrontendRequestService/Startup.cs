@@ -28,7 +28,7 @@ namespace FrontendRequestService
                 {
                     policy.AllowAnyHeader();
                     policy.AllowAnyMethod();
-                    policy.WithOrigins("http://localhost:1200");
+                    policy.WithOrigins("http://localhost:1200", "http://localhost:2000");
                     policy.AllowCredentials();
                 });
             });
