@@ -12,7 +12,7 @@ namespace IgniteDownloader
 {
     public class Download
     {
-        public static void Initiate(string url)
+        public static string Initiate(string url)
         {
             QuickFixForParallelDownload();
 
@@ -23,6 +23,7 @@ namespace IgniteDownloader
             //cfg.PeerAssemblyLoadingMode = PeerAssemblyLoadingMode.CurrentAppDomain;
             cfg.JvmOptions = new List<string> { "-XX:+UseG1GC", "-XX:+DisableExplicitGC" };
             cfg.Logger = new IgniteLog4NetLogger();
+            string output = "";
             try
             {
                 using (var ignite = Ignition.Start(cfg))
@@ -36,7 +37,7 @@ namespace IgniteDownloader
 
                     Console.WriteLine("result: " + result);
 
-
+                    output = "Download sucessful";
                     Console.WriteLine("DONE");
                 }
 
@@ -44,7 +45,10 @@ namespace IgniteDownloader
             catch (Exception e)
             {
                 Console.WriteLine(e);
+                output = "Download unsucessful";
             }
+            Console.WriteLine(output);
+            return output;
         }
         private static void QuickFixForParallelDownload()
         {

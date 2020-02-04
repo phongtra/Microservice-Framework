@@ -35,8 +35,8 @@ namespace DownloadHandlerService
         {
             var body = ea.Body;
             var message = Encoding.UTF8.GetString(body);
-            Download.Initiate(message);
-            Message.PublishMessage("done", "ScrewYou");
+            var output = Download.Initiate(message);
+            Message.PublishMessage(output, "ScrewYou");
         }
         public void Deregister()
         {

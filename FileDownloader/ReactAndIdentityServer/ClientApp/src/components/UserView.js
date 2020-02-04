@@ -3,7 +3,6 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 import question from "../assets/question.jpg";
-import DownloadView from "./DownloadView";
 import SignalR from "./SignalR";
 
 class UserView extends Component {
@@ -73,7 +72,6 @@ class UserView extends Component {
             );
           })}
         </div>
-        <DownloadView />
         <SignalR />
       </div>
     );

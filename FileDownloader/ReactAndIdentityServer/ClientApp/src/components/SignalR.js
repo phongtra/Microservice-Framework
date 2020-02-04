@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 
 import * as signalR from "@aspnet/signalr";
+import DownloadView from "./DownloadView";
 
 class SignalR extends PureComponent {
   state = { message: "" };
@@ -44,10 +45,11 @@ class SignalR extends PureComponent {
   onNotifReceived(res) {
     console.log("Yayyyyy, I just received a notification!!!", res);
     this.setState({ message: res });
+    setTimeout(() => this.setState({ message: "" }), 5000);
   }
 
   render() {
-    return <h4>{this.state.message}</h4>;
+    return <DownloadView message={this.state.message} />;
   }
 }
 
