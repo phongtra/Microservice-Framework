@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using RabbitMQ.MessagePublishCommon;
 
 
 namespace FrontendRequestService
@@ -34,6 +35,7 @@ namespace FrontendRequestService
             });
             services.AddSingleton<RabbitListener>();
             services.AddSingleton<NotifyService>();
+            services.AddSingleton<Message>();
             services.AddControllers();
             services.AddSignalR();
         }

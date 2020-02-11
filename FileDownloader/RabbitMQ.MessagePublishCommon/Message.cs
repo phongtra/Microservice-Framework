@@ -7,7 +7,7 @@ namespace RabbitMQ.MessagePublishCommon
 {
     public class Message
     {
-        public static void PublishMessage(string message, string routingKey)
+        public void PublishMessage(string message, string routingKey)
         {
             byte[] body;
             var factory = new ConnectionFactory() { HostName = "localhost" };

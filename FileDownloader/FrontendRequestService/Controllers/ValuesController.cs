@@ -10,6 +10,12 @@ namespace FrontendRequestService.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private readonly Message _message;
+
+        public ValuesController(Message message)
+        {
+            _message = message;
+        }
         // GET: api/<controller>
         [HttpGet]
         public void Get()
@@ -28,7 +34,7 @@ namespace FrontendRequestService.Controllers
         [HttpPost]
         public void Post(Link link)
         {
-            Message.PublishMessage(link.Value, "Fuckyou");
+            _message.PublishMessage(link.Value, "DownloadLink");
         }
 
         // PUT api/<controller>/5

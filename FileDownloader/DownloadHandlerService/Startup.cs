@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using RabbitMQ.MessagePublishCommon;
 
 namespace DownloadHandlerService
 {
@@ -13,6 +14,7 @@ namespace DownloadHandlerService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<RabbitListener>();
+            services.AddSingleton<Message>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -14,18 +14,27 @@ export default class DownloadView extends Component {
     }
   }
   onHandleClick = async e => {
+    console.log(this.state.token);
     e.preventDefault();
     if (!this.state.link) {
       return this.setState({ error: "Must add link" });
     }
-    await axios.post(
-      "http://localhost:1200/values",
-      {
-        value: this.state.link
-      },
-      { headers: { Authorization: `Bearer ${this.state.token}` } }
-    );
-    this.setState({ error: "", message: "Download is being process" });
+    try {
+      await axios.post(
+        "http://localhost:1200/values",
+        {
+          value: this.state.link
+        },
+        { headers: { Authorization: `Bearer ${this.state.token}` } }
+      );
+      this.setState({
+        error: "",
+        link: "",
+        message: "Download is being process"
+      });
+    } catch (e) {
+      this.setState({ error: "Cannot download link", link: "", message: "" });
+    }
   };
   renderMessage = () => {
     if (this.props.message) {
@@ -50,7 +59,7 @@ export default class DownloadView extends Component {
           ""
         )}
         {this.renderMessage()}
-        <p style={{ color: "red" }}>{this.state.error}</p>
+        <h4 style={{ color: "red" }}>{this.state.error}</h4>
       </div>
     );
   }

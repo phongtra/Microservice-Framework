@@ -31,7 +31,7 @@ namespace FrontendRequestService
         {
             var consumer = new EventingBasicConsumer(Channel);
             consumer.Received += ReceivedMessage;
-            Channel.BasicConsume(queue: "ScrewYou", autoAck: true, consumer: consumer);
+            Channel.BasicConsume(queue: "DownloadResult", autoAck: true, consumer: consumer);
         }
 
         public void ReceivedMessage(object model, BasicDeliverEventArgs ea)
