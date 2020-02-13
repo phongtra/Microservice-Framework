@@ -101,6 +101,7 @@ namespace DatabaseAPI.Controllers
         // POST: api/Questions
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
+        [Authorize(Roles = "ADMIN")]
         [HttpPost]
         public async Task<ActionResult<Question>> PostQuestion(Question question)
         {

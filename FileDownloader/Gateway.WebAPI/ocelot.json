@@ -5,14 +5,7 @@
       "DownstreamScheme": "http",
       "ServiceName": "Database",
       "UpstreamPathTemplate": "/questions-route",
-      "UpstreamHttpMethod": [ "Get", "Post" ],
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "ApiSecurity",
-        "AllowedScopes": []
-      },
-      "RouteClaimsRequirement": {
-        "userType": "ADMIN"
-      }
+      "UpstreamHttpMethod": [ "Get", "Post" ]
     },
     {
       "DownstreamPathTemplate": "/api/questions/titles",
@@ -96,7 +89,7 @@
     },*/
     {
       //To indentity server
-      "UpstreamPathTemplate": "/Identity/{url}",
+      "UpstreamPathTemplate": "/Identity/Identity/{url}",
       "DownstreamPathTemplate": "/Identity/{url}",
       "DownstreamScheme": "http",
       "ServiceName": "Identity"
@@ -108,8 +101,8 @@
     },
     {
       //To indentity server
-      "UpstreamPathTemplate": "/Identity/Account/Manage",
-      "DownstreamPathTemplate": "/Identity/Account/Manage",
+      "UpstreamPathTemplate": "/Identity/{url}",
+      "DownstreamPathTemplate": "/Identity/{url}",
       "DownstreamScheme": "http",
       "ServiceName": "Identity"
       //"AuthenticationOptions": {
@@ -118,6 +111,7 @@
       //}
       //"UpstreamHttpMethod": [ "POST", "PUT", "GET" ]
     },
+
     {
       //To indentity server
       "UpstreamPathTemplate": "/config/{url}",

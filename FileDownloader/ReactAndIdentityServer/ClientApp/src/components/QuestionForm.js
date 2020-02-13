@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-
+import authService from "./api-authorization/AuthorizeService";
 import FormField from "./FormField";
 
 class QuestionForm extends Component {
@@ -10,16 +10,21 @@ class QuestionForm extends Component {
       this.setState({ data: res.data });
     });
   }
-  onSubmit = e => {
+  onSubmit = async e => {
     e.preventDefault();
+    const token = await authService.getAccessToken();
     axios
-      .post("http://localhost:2000/questions-route", {
-        title: this.state.title,
-        content: this.state.content,
-        authorId: parseInt(this.state.authorId)
-      })
+      .post(
+        "http://localhost:2000/questions-route",
+        {
+          title: this.state.title,
+          content: this.state.content,
+          authorId: parseInt(this.state.authorId)
+        },
+        { headers: { Authorization: `Bearer ${token}` } }
+      )
       .then(res => {
-        this.props.history.push(`/question-detail-view/${this.state.authorId}`);
+        this.props.history.push(`/question-view/${this.state.authorId}`);
       });
   };
 
