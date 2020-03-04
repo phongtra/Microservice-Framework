@@ -34,3 +34,5 @@ There can be some weird behavior when trying to start up the server. You may hav
 **RabbitMQ**
 
 To start RabbitMQ server, run the command `docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-management` and navigate to localhost:5672
+
+About the project: https://docs.google.com/presentation/d/1yI4K102hNl2omsDf9l-Dtd02DCvaI8yttoSWXcWCc-4/edit#slide=id.p
