@@ -47,7 +47,7 @@ namespace DatabaseAPI
                 };
             });
             services.AddEntityFrameworkNpgsql()
-                .AddDbContext<VitunDatabaseContext>(options =>
+                .AddDbContext<DatabaseContext>(options =>
                     options.UseNpgsql(Configuration.GetConnectionString("Vitun"))
                 );
             services.AddControllers();

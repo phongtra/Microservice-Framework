@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace DatabaseAPI.Models
 {
-    public class VitunDatabaseContext : DbContext
+    public class DatabaseContext : DbContext
     {
-        public VitunDatabaseContext(DbContextOptions<VitunDatabaseContext> options) : base(options) { }
+        public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options) { }
         public DbSet<Author> Authors { get; set; }
         public DbSet<Question> Questions { get; set; }
     }

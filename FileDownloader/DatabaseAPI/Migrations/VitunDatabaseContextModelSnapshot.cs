@@ -7,8 +7,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace DatabaseAPI.Migrations
 {
-    [DbContext(typeof(VitunDatabaseContext))]
-    partial class VitunDatabaseContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(DatabaseContext))]
+    partial class DatabaseContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {

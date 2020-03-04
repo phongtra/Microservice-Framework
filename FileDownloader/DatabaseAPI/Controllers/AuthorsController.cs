@@ -14,9 +14,9 @@ namespace DatabaseAPI.Controllers
     [ApiController]
     public class AuthorsController : ControllerBase
     {
-        private readonly VitunDatabaseContext _context;
+        private readonly DatabaseContext _context;
 
-        public AuthorsController(VitunDatabaseContext context)
+        public AuthorsController(DatabaseContext context)
         {
             _context = context;
         }

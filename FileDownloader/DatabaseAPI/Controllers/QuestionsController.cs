@@ -15,9 +15,9 @@ namespace DatabaseAPI.Controllers
     [ApiController]
     public class QuestionsController : ControllerBase
     {
-        private readonly VitunDatabaseContext _context;
+        private readonly DatabaseContext _context;
 
-        public QuestionsController(VitunDatabaseContext context)
+        public QuestionsController(DatabaseContext context)
         {
             _context = context;
         }

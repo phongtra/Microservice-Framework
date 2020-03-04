@@ -1,10 +1,11 @@
 # IgniteSparkDownloader
 
 **Must have**
-`Docker Desktop` installed on the machine.
+`Docker Desktop` installed on the machine. Link: https://hub.docker.com/?overlay=onboarding
 
-Link: https://hub.docker.com/?overlay=onboarding
 `Consul CLI` https://www.consul.io/downloads.html
+
+`PostgreSQL` server.
 
 **To run Graylog**
 In your command line, run `docker-compose up` and navigate to `127.0.0.1:9000` on your browser
@@ -24,8 +25,9 @@ DatabaseAPI uses Postgres, make sure that in your appsettings.json, you set your
 4. If needed, go to each project and check if the reference path to Consul Extension and GenericWebInitializer is correct.
 5. Check the Start up option in `Project Properties`, go to debug and make sure DatabaseAPI is on 5000, ReactAndIdentityServer is on 2100, and GatewayAPI is on 2000.
 6. Check the running option, make sure that it is not IIS.
-7. Run DatabaseAPI, GatewayAPI,ReactAndIdentityServer, DownloadHandlerService, DownloaderGateway, FrontendRequestService, Gateway.WebAPI, and IgniteServer.
-8. Navigate to `http://localhost:2000`
+7. Check your database connection string in DatabaseAPI appsettings.json
+8. Run DatabaseAPI, GatewayAPI,ReactAndIdentityServer, DownloadHandlerService, DownloaderGateway, FrontendRequestService, Gateway.WebAPI, and IgniteServer.
+9. Navigate to `http://localhost:2000`
 
 **Weird Behavior**
 

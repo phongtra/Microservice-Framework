@@ -8,7 +8,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace DatabaseAPI.Migrations
 {
-    [DbContext(typeof(VitunDatabaseContext))]
+    [DbContext(typeof(DatabaseContext))]
     [Migration("20200110021114_initial")]
     partial class initial
     {

@@ -11,7 +11,7 @@ namespace DatabaseAPI.Models
     {
         public static void Initialize(IServiceProvider serviceProvider)
         {
-            using (var context = new VitunDatabaseContext(serviceProvider.GetRequiredService<DbContextOptions<VitunDatabaseContext>>()))
+            using (var context = new DatabaseContext(serviceProvider.GetRequiredService<DbContextOptions<DatabaseContext>>()))
             {
                 if (context.Authors.Any())
                 {
