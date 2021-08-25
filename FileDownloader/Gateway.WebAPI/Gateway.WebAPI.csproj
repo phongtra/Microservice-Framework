@@ -8,7 +8,7 @@
   <ItemGroup>
     <PackageReference Include="Consul" Version="0.7.2.6" />
     <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.18" />
     <PackageReference Include="Ocelot" Version="13.8.0" />
     <PackageReference Include="Ocelot.Cache.EasyCaching" Version="2.0.1" />
     <PackageReference Include="Ocelot.Provider.Consul" Version="13.8.0" />
